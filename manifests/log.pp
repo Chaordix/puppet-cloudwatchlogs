@@ -3,6 +3,8 @@ define cloudwatchlogs::log (
   $streamname      = '{instance_id}',
   $datetime_format = '%b %d %H:%M:%S',
   $log_group_name  = undef,
+  $multi_line_start_pattern = undef,
+  $time_zone = LOCAL,
 
 ){
   if $path == undef {
