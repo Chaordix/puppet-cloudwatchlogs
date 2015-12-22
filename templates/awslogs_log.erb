@@ -6,6 +6,6 @@ log_stream_name = <%= @streamname %>
 initial_position = start_of_file
 log_group_name = <%= @real_log_group_name %>
 time_zone = <%= @time_zone %>
-<% if @multi_line_start_pattern != '' -%>
+<% if @multi_line_start_pattern -%>
 multi_line_start_pattern = <%= @multi_line_start_pattern %>
 <% end -%>
