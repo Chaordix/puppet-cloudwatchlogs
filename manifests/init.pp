@@ -124,7 +124,7 @@ class cloudwatchlogs (
       } else {
         exec { 'cloudwatchlogs-install':
           path    => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
-          command => "python /usr/local/src/awslogs-agent-setup.py -n -r $(curl http://169.254.169.254/latest/dynamic/instance-identity/document 2> /dev/null | grep region | awk -F\" '{print $4}') -c /etc/awslogs/awslogs.conf",
+          command => 'python /usr/local/src/awslogs-agent-setup.py -n -r $(curl http://169.254.169.254/latest/dynamic/instance-identity/document 2> /dev/null | grep region | awk -F\" \'{print $4}\') -c /etc/awslogs/awslogs.conf',
           onlyif  => '[ -e /usr/local/src/awslogs-agent-setup.py ]',
           unless  => '[ -d /var/awslogs/bin ]',
           require => Concat['/etc/awslogs/awslogs.conf'],
